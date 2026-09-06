@@ -40,21 +40,19 @@ const seedCinemas = async () => {
         movies: [movies[0]._id, movies[5]._id],
       },
     ];
-
-    // 4. Limpieza de colección previa si existe
+   
     const allCinemas = await Cinema.find();
     if (allCinemas.length > 0) {
       await Cinema.collection.drop();
       console.log('Colección "cinemas" anterior eliminada.');
     }
-
-    // 5. Inserción de los documentos
+  
     await Cinema.insertMany(cinemas);
     console.log('¡Cines sembrados correctamente!');
   } catch (error) {
     console.error('Error al sembrar los cines:', error);
   } finally {
-    // 6. Cierre de conexión
+
     await mongoose.disconnect();
     console.log('Conexión con MongoDB cerrada.');
   }

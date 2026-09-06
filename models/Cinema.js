@@ -12,4 +12,4 @@ const cinemaSchema = new mongoose.Schema(
 );
 
 const Cinema = mongoose.model('Cinema', cinemaSchema);
-module.exports = Cinema;
+module.exports = Cinema; 
